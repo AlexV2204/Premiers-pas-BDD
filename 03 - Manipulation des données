@@ -1,0 +1,51 @@
+1) Insère dans la table school les données suivantes : 
+
+|            name                             |      country     | capacity |
+|.............................................|..................|..........|
+|Beauxbatons Academy of Magic                 | France           | 550      |
+|Castelobruxo                                 | Brazil           | 380      |
+|Durmstrang Institute                         | Norway           | 570      |
+|Hogwarts School of Witchcraft and Wizardry   | United Kingdom   | 450      |
+|Ilvermorny School of Witchcraft and Wizardry | USA              | 300      |
+|Koldovstoretz                                | Russia           | 125      |
+|Mahoutokoro School of Magic                  | Japan            | 800      |
+|Uagadou School of Magic                      | Uganda           | 350      |
+
+mysql> INSERT INTO school (name, country, capacity) 
+    -> VALUES ('Beauxbatons Academy of Magic', 'France', 550),
+    -> ('Castelobruxo', 'Brazil', 380),
+    -> ('Durmstrang Institute', ‘Norway’, 570),
+    -> ('Hogwarts School of Witchcraft and Wizardry','United Kingdom',450),
+    -> ('Ilvermorny School of Witchcraft and Wizardry','USA',300),
+    -> ('Koldovstoretz','Russia',125),
+    -> ('Mahoutokoro School of Magic','Japan',800),
+    -> ('Uagadou School of Magic','Uganda',350);
+    
+2) “Durmstrang Institute” est en réalité en Suède (Sweden), modifie son pays :
+
+mysql> UPDATE school
+    -> SET country='Sweden'
+    -> WHERE country='Norway';
+
+3) “Mahoutokoro School of Magic” passe à une capacité de 700 :
+
+mysql> UPDATE school
+    -> SET capacity=700
+    -> WHERE name='Mahoutokoro School of Magic';
+    
+4) Supprime en une seule requête toutes les écoles comportant “Magic” dans leur nom (il y en a 3). Tu peux t’aider du mot clé LIKE :
+
+mysql> DELETE FROM school WHERE name LIKE '%Magic%';
+
+5) Ensuite, affiche via une requête SELECT toutes les données de la table school et colle également le résultat dans le Gist :
+
+mysql> SELECT * FROM school;
++----+----------------------------------------------+----------------+----------+
+| id | name                                         | country        | capacity |
++----+----------------------------------------------+----------------+----------+
+|  2 | Castelobruxo                                 | Brazil         | 380      |
+|  4 | Durmstrang Institute                         | Sweden         | 570      |
+|  5 | Hogwarts School of Witchcraft and Wizardry   | United Kingdom | 450      |
+|  6 | Ilvermorny School of Witchcraft and Wizardry | USA            | 300      |
+|  7 | Koldovstoretz                                | Russia         | 125      |
++----+----------------------------------------------+----------------+----------+
