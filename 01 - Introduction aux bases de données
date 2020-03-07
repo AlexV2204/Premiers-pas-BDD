@@ -1,0 +1,30 @@
+mysql> SHOW TABLES;
++-------------------------+
+| Tables_in_wild_db_quest |
++-------------------------+
+| school                  |
+| wizard                  |
++-------------------------+
+
+mysql> DESCRIBE wizard;
++-------------+--------------+------+-----+---------+----------------+
+| Field       | Type         | Null | Key | Default | Extra          |
++-------------+--------------+------+-----+---------+----------------+
+| id          | int(11)      | NO   | PRI | NULL    | auto_increment |
+| firstname   | varchar(100) | NO   |     | NULL    |                |
+| lastname    | varchar(100) | NO   |     | NULL    |                |
+| birthday    | date         | NO   |     | NULL    |                |
+| birth_place | varchar(255) | YES  |     | NULL    |                |
+| biography   | text         | YES  |     | NULL    |                |
+| is_muggle   | tinyint(1)   | NO   |     | NULL    |                |
++-------------+--------------+------+-----+---------+----------------+
+
+mysql> DESCRIBE school;
++----------+--------------+------+-----+---------+----------------+
+| Field    | Type         | Null | Key | Default | Extra          |
++----------+--------------+------+-----+---------+----------------+
+| id       | int(11)      | NO   | PRI | NULL    | auto_increment |
+| name     | varchar(100) | NO   |     | NULL    |                |
+| country  | varchar(255) | NO   |     | NULL    |                |
+| capacity | varchar(45)  | YES  |     | NULL    |                |
++----------+--------------+------+-----+---------+----------------+
